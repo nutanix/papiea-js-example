@@ -1,0 +1,29 @@
+version: '3.5'
+services:
+
+  location-example:
+    container_name: location-example
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NPM_TOKEN=${NPM_TOKEN}
+    volumes:
+      - .:/home/node/location-example
+
+  papiea:
+    container_name: papiea
+    image: nutanix-docker.jfrog.io/papiea:317
+    depends_on:
+      - mongo
+    ports:
+      - 3333:3000
+    environment:
+      - HOT_RELOAD=${HOT_RELOAD:-false}
+
+  mongo:
+    image: mongo:4.1
+
+networks:
+  default:
+    name: papieajs_default
