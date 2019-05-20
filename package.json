@@ -1,11 +1,11 @@
 {
-  "name": "mypackage",
+  "name": "papiea-js-examples",
   "version": "0.0.1",
   "description": "",
   "main": "dist/location_provider_example.js",
   "scripts": {
     "start_example_provider": "node dist/location_provider_example.js",
-    "run_client": "node dist/location_client_example.js",
+    "run_client": "tsc && node dist/location_client_example.js",
     "build": "tsc"
   },
   "author": "",
